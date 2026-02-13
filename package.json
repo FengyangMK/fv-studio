@@ -1,0 +1,53 @@
+{
+    "name": "fv-studio",
+    "version": "1.0.0",
+    "description": "fv studio",
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint .",
+        "commit": "git-cz",
+        "prepare": "husky",
+        "lint:staged": "lint-staged"
+    },
+    "config": {
+        "commitizen": {
+            "path": "node_modules/cz-git"
+        }
+    },
+    "lint-staged": {
+        "*.{md,json}": [
+            "prettier --cache --write --no-error-on-unmatched-pattern"
+        ],
+        "*.{css,less}": [
+            "prettier --cache --write"
+        ],
+        "*.{js,jsx}": [
+            "eslint --fix",
+            "prettier --cache --write"
+        ],
+        "*.{ts,tsx}": [
+            "eslint --fix",
+            "prettier --cache --parser=typescript --write"
+        ]
+    },
+    "keywords": [],
+    "author": "FengyangMK",
+    "license": "ISC",
+    "devDependencies": {
+        "@eslint/js": "^9.39.2",
+        "eslint": "^9.39.2",
+        "typescript": "^5.9.3",
+        "@types/node": "^25.0.6",
+        "typescript-eslint": "^8.52.0",
+        "globals": "17.0.0",
+        "prettier": "^3.7.4",
+        "eslint-plugin-prettier": "^5.5.4",
+        "eslint-plugin-simple-import-sort": "^12.1.1",
+        "cz-git": "^1.12.0",
+        "commitizen": "^4.3.1",
+        "@commitlint/config-conventional": "^20.3.1",
+        "commitlint": "^20.3.1",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.2.7"
+    }
+}

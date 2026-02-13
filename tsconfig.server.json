@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        /* 模块系统相关 */
+        "module": "commonjs",               // 指定模块代码生成方式：CommonJS
+        "allowSyntheticDefaultImports": true, // 允许从没有默认导出的模块中默认导入
+
+        /* 装饰器与元数据 */
+        "emitDecoratorMetadata": true,      // 为装饰器提供元数据支持
+        "experimentalDecorators": true,       // 启用实验性装饰器语法
+
+        /* 输出相关 */
+        "declaration": true,                  // 生成 .d.ts 声明文件
+        "removeComments": true,               // 编译后移除注释
+        "sourceMap": true,                  // 生成 .map 源映射文件
+        "incremental": true,                // 启用增量编译，提高后续编译速度
+
+        /* 目标环境 */
+        "target": "esnext",                 // 编译目标为最新 ECMAScript 版本
+
+        /* 类型检查严格程度（全部关闭，宽松模式） */
+        "strictNullChecks": false,          // 关闭 null/undefined 严格检查
+        "noImplicitAny": false,             // 允许隐式 any 类型
+        "strictBindCallApply": false,       // 关闭 bind/call/apply 严格检查
+        "noFallthroughCasesInSwitch": false, // 关闭 switch 贯穿检查
+        "forceConsistentCasingInFileNames": false // 关闭文件名大小写一致性检查
+    }
+}

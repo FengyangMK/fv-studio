@@ -1,0 +1,6 @@
+packages:
+  # 应用包
+  - 'apps/*'
+  # 核心包
+  - 'packages/*'
+  
