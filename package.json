@@ -21,15 +21,19 @@
             "prettier --cache --write --no-error-on-unmatched-pattern"
         ],
         "*.{css,less}": [
-            "prettier --cache --write"
+            "prettier --cache --write --no-error-on-unmatched-pattern"
         ],
         "*.{js,jsx}": [
             "eslint --fix",
-            "prettier --cache --write"
+            "prettier --cache --write --no-error-on-unmatched-pattern"
         ],
         "*.{ts,tsx}": [
             "eslint --fix",
-            "prettier --cache --parser=typescript --write"
+            "prettier --cache --parser=typescript --write --no-error-on-unmatched-pattern"
+        ],
+        "*.vue": [
+            "eslint --fix",
+            "prettier --cache --write --no-error-on-unmatched-pattern"
         ]
     },
     "keywords": [],
@@ -39,12 +43,14 @@
         "@eslint/js": "^9.39.2",
         "eslint": "^9.39.2",
         "typescript": "^5.9.3",
-        "@types/node": "^25.0.6",
+        "@types/node": "22.19.12",
         "typescript-eslint": "^8.52.0",
         "globals": "17.0.0",
         "prettier": "^3.7.4",
         "eslint-plugin-prettier": "^5.5.4",
         "eslint-plugin-simple-import-sort": "^12.1.1",
+        "eslint-plugin-vue": "^10.5.1",
+        "vue-eslint-parser": "^10.2.0",
         "cz-git": "^1.12.0",
         "commitizen": "^4.3.1",
         "@commitlint/config-conventional": "^20.3.1",

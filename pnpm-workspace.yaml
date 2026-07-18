@@ -3,4 +3,5 @@ packages:
   - 'apps/*'
   # 核心包
   - 'packages/*'
-  
+  # 测试包
+  - 'playground/*'

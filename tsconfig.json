@@ -34,5 +34,5 @@
         /* 开发体验 */
         "preserveWatchOutput": true // watch模式下不清屏，保留历史输出
     },
-    "include": ["apps/**/*", "packages/**/*"]
+    "include": ["apps/**/*", "packages/**/*", "playground/**/*"]
 }
