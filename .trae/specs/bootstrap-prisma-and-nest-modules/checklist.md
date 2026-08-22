@@ -1,0 +1,6 @@
+- [x] `spec.md` 明确覆盖 Prisma 初始化、配置装配、Nest 模块化与基础验证链路
+- [x] 任务列表包含 Prisma 依赖与脚本、`schema.prisma`、客户端生成和首次迁移准备
+- [x] 任务列表包含 `ConfigModule`、环境变量校验、`PrismaModule` 与 `PrismaService` 落地
+- [x] 任务列表包含按功能模块组织的最小 Nest 模块迁移，而不是继续沿用根级脚手架业务逻辑
+- [x] 任务列表包含对构建或类型检查、Prisma 脚本以及基础接口响应的验证
+- [x] 规格要求与既有 `apps/server/AGENT.md`、`docker/docker-compose.yml` 的约束保持一致

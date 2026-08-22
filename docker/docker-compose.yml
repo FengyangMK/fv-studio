@@ -1,0 +1,28 @@
+
+version: '3.9'
+services:
+    postgres:
+        image: postgres:16-alpine
+        container_name: fv-studio-postgres
+        restart: unless-stopped
+        ports:
+            - '5432:5432'
+        environment:
+            POSTGRES_DB: fv_studio
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            PGDATA: /var/lib/postgresql/data/pgdata
+        volumes:
+            - ./postgresql:/var/lib/postgresql/data
+        healthcheck:
+            test: ['CMD-SHELL', 'pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB']
+            interval: 10s
+            timeout: 5s
+            retries: 5
+            start_period: 10s
+        networks:
+            - fv-studio-network
+
+networks:
+    fv-studio-network:
+        driver: bridge
