@@ -1,0 +1,7 @@
+- [x] `spec.md` 明确覆盖 User 模块 CRUD、Prisma 用户模型、DTO 校验与 Swagger 文档入口
+- [x] 任务列表包含 `User` Prisma 模型、迁移记录与 Prisma Client 更新
+- [x] 任务列表包含按功能模块组织的 `src/modules/users` CRUD 实现
+- [x] 任务列表包含输入 DTO、响应结构与 `@nestjs/swagger` 文档装饰信息
+- [x] 任务列表包含在 `main.ts` 中接入 Swagger 文档入口并保留现有健康检查链路
+- [x] 任务列表包含对 Prisma、构建或类型检查、User CRUD 接口与 Swagger 页面可用性的验证
+- [x] 本次规格与现有 `apps/server/AGENT.md`、Prisma 初始化基线和 `nest-cli.json` 中已启用的 Swagger 插件方向一致
