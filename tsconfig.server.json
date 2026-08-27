@@ -1,36 +1,23 @@
 {
     "compilerOptions": {
-        // 模块系统与解析
-        "module": "nodenext", // 输出模块系统：使用 Node.js 最新 ESM/CJS 互认规则
-        "moduleResolution": "nodenext", // 模块解析策略：按 nodenext 规则找文件
-        "resolvePackageJsonExports": true, // 允许按 package.json exports 字段解析子路径
-
-        // 装饰器与元数据
-        "emitDecoratorMetadata": true, // 为装饰器生成运行时元数据
-        "experimentalDecorators": true, // 启用实验性装饰器语法
-
-        // 兼容性
-        "esModuleInterop": true, // 允许 CommonJS 与 ESM 互操作
-        "allowSyntheticDefaultImports": true, // 允许从没有默认导出的模块写默认导入
-
-        // 编译输出
-        "declaration": true, // 同时生成 .d.ts 声明文件
-        "removeComments": true, // 编译后移除注释
-        "sourceMap": true, // 生成 .map 源映射文件
-        "incremental": true, // 增量编译，加快二次构建
-
-        // 语言目标
-        "target": "ES2023", // 编译目标语法：ES2023
-
-        // 严格检查（部分开启）
-        "strictNullChecks": true, // 启用 null/undefined 严格检查
-        "noImplicitAny": false, // 关闭“隐式 any”报错
-        "strictBindCallApply": false, // 关闭 bind/call/apply 严格检查
-        "noFallthroughCasesInSwitch": false, // 关闭 switch 贯穿报错
-
-        // 文件系统与大小写
-        "forceConsistentCasingInFileNames": true, // 强制文件名大小写一致
-        "skipLibCheck": true, // 跳过 node_modules 内 .d.ts 校验
-        "isolatedModules": true // 单文件编译模式，适配 babel/swc 等
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        "resolvePackageJsonExports": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "declaration": true,
+        "removeComments": true,
+        "sourceMap": true,
+        "incremental": true,
+        "target": "ES2023",
+        "strictNullChecks": true,
+        "noImplicitAny": false,
+        "strictBindCallApply": false,
+        "noFallthroughCasesInSwitch": false,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "isolatedModules": true
     }
 }

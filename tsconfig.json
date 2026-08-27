@@ -1,38 +1,25 @@
 {
     "compilerOptions": {
-        /* 严格类型检查 */
-        "strict": true, // 启用所有严格类型检查选项
-        "alwaysStrict": false, // 不强制每个文件顶部添加"use strict"
-        "strictBindCallApply": false, // 关闭对bind/call/apply的严格参数检查
-        "noUncheckedIndexedAccess": true, // 索引访问时加入undefined，防止越界
-
-        /* 声明文件与源码映射 */
-        "declaration": true, // 生成.d.ts声明文件
-        "declarationMap": true, // 生成声明文件对应的sourceMap
-        "sourceMap": true, // 生成.js.map调试映射
-        "inlineSources": true, // 将TS源码内嵌进sourceMap，便于调试
-
-        /* 语言目标与库 */
-        "target": "esnext", // 编译目标为最新ES版本
-        "lib": ["ESNext"], // 引入最新ES标准库定义
-
-        /* 模块解析 */
-        "moduleResolution": "node", // 使用Node风格的模块解析
-        "isolatedModules": true, // 单文件编译模式，兼容Babel等转译器
-        "importHelpers": true, // 从tslib导入辅助函数，减小代码体积
-
-        /* 代码质量 */
-        "noImplicitReturns": true, // 函数所有路径必须有显式return
-        "noFallthroughCasesInSwitch": true, // switch不允许case穿透
-        "noErrorTruncation": true, // 错误信息完整输出，不被截断
-        "noUnusedLocals": false, // 允许存在未使用的局部变量
-        "noUnusedParameters": false, // 允许存在未使用的参数
-
-        /* 向下兼容 */
-        "downlevelIteration": true, // 降级迭代语法，兼容旧环境
-
-        /* 开发体验 */
-        "preserveWatchOutput": true // watch模式下不清屏，保留历史输出
+        "strict": true,
+        "alwaysStrict": false,
+        "strictBindCallApply": false,
+        "noUncheckedIndexedAccess": true,
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "inlineSources": true,
+        "target": "esnext",
+        "lib": ["ESNext"],
+        "moduleResolution": "node",
+        "isolatedModules": true,
+        "importHelpers": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "noErrorTruncation": true,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "downlevelIteration": true,
+        "preserveWatchOutput": true
     },
     "include": ["apps/**/*", "packages/**/*", "playground/**/*"]
 }
