@@ -54,3 +54,4 @@ pids
 
 
 docker/postgresql/
+.pnpm-store/

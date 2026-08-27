@@ -4,7 +4,6 @@ import { ConfigModule } from '@nestjs/config'
 import { appConfig, databaseConfig } from './config/configuration'
 import { envValidationSchema } from './config/env.validation'
 import { HealthModule } from './modules/health/health.module'
-import { UsersModule } from './modules/users/users.module'
 import { PrismaModule } from './prisma/prisma.module'
 
 @Module({
@@ -23,7 +22,6 @@ import { PrismaModule } from './prisma/prisma.module'
         }),
         PrismaModule,
         HealthModule,
-        UsersModule,
     ],
 })
 export class AppModule {}
