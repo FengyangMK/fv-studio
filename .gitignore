@@ -52,6 +52,8 @@ pids
 *.seed
 *.pid.lock
 
+*.tsbuildinfo
+
 
 docker/postgresql/
 .pnpm-store/
