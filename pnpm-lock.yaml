@@ -65,6 +65,8 @@ importers:
 
   apps/admin: {}
 
+  apps/play: {}
+
   apps/server:
     dependencies:
       '@nestjs/common':

@@ -171,3 +171,15 @@ pnpm --filter @fv-studio/server exec prisma generate
 - 引入 Prisma 后，应优先完成 `src/config`、`src/prisma`、全局校验和异常收口，再继续扩展业务模块。
 
 本文件对 `apps/server` 后续开发具备约束力。新增模块、数据库接入和工程初始化实现时，均应先满足本文档，再写业务代码。
+
+## 11. 代码规范
+
+代码编写必须符合 NestJS 规范，代码模块必须有说明，包括模块职责、依赖关系、服务提供等注释说明。函数参数、返回值、异常等也必须有注释说明。符合jsdoc规范。
+
+```
+/**
+ * 获取用户信息
+ * @param userId 用户ID
+ * @returns 用户信息
+ */
+```
