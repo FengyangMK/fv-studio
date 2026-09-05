@@ -8,6 +8,7 @@ import type { AppConfig } from './config/env.types'
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule)
+    app.enableCors({ origin: true, credentials: false })
 
     // 启动阶段统一启用输入校验，避免非法请求绕过 DTO 约束。
     app.useGlobalPipes(
@@ -26,8 +27,8 @@ async function bootstrap() {
     app.setGlobalPrefix(appConfig.apiPrefix)
 
     const swaggerConfig = new DocumentBuilder()
-        .setTitle('FV Studio Server API')
-        .setDescription('Backend API documentation for health and user management endpoints.')
+        .setTitle('FV Studio 服务端接口文档')
+        .setDescription('FV Studio 健康检查、用户认证及业务接口文档。')
         .setVersion('1.0.0')
         .build()
     const swaggerDocument = SwaggerModule.createDocument(app, swaggerConfig)

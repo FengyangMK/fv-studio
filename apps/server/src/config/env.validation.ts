@@ -14,4 +14,26 @@ export const envValidationSchema = Joi.object({
     DATABASE_URL: Joi.string()
         .uri({ scheme: ['postgresql', 'postgres'] })
         .required(),
+    JWT_ACCESS_SECRET: Joi.string().min(5).required(),
+    JWT_REFRESH_SECRET: Joi.string().min(5).required(),
+    JWT_ACCESS_EXPIRES_IN: Joi.string().trim().min(1).default('15m'),
+    JWT_REFRESH_EXPIRES_IN: Joi.string().trim().min(1).default('7d'),
+    BCRYPT_SALT_ROUNDS: Joi.number().integer().min(10).max(15).default(12),
+}).custom((value: Record<string, unknown>, helpers) => {
+    if (value.JWT_ACCESS_SECRET === value.JWT_REFRESH_SECRET) {
+        return helpers.error('any.invalid', {
+            message: 'JWT access and refresh secrets must be different',
+        })
+    }
+
+    if (
+        value.NODE_ENV === 'production' &&
+        (value.JWT_ACCESS_SECRET === 'development-access' || value.JWT_REFRESH_SECRET === 'development-refresh')
+    ) {
+        return helpers.error('any.invalid', {
+            message: 'Development JWT secrets are not allowed in production',
+        })
+    }
+
+    return value
 })

@@ -106,6 +106,8 @@ docker/         # 本地基础设施配置，不存放运行时数据
 - 数据库结构以 Prisma schema 和 migration 为唯一来源。
 - 统一使用 NestJS Logger，不使用 `console.log`。
 - 跨模块调用通过模块公开的 provider 完成，避免深层导入和循环依赖。
+- Swagger/OpenAPI 的接口分组、摘要、描述、响应说明和 DTO 字段说明必须使用中文；代码标识符、路由路径和协议字段名保持项目既有命名。
+- 服务端接口成功响应统一使用 `{ code: 0, message: string, data: T }`，异常响应统一使用 `{ code: number, message: string, data: null }`；除 HTTP 204 外不得返回不一致的顶层结构。
 
 ## 7. 前端开发约定
 

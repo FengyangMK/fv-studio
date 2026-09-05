@@ -2,8 +2,7 @@
     "name": "fv-studio",
     "version": "1.0.0",
     "description": "fv studio",
-    "main": "index.js",
-    "packageManager": "pnpm@10.12.1",
+    "packageManager": "pnpm@11.20.0",
     "scripts": {
         "dev": "turbo run dev",
         "lint": "eslint .",

@@ -127,6 +127,8 @@ apps/server/
     - 记录错误上下文
     - 将 Prisma 常见异常映射为可读的 HTTP 错误
 - Controller 不做 `try/catch` 样板处理；异常由 service 抛出、由全局过滤器统一收口。
+- 成功响应统一返回 `{ code: 0, message: string, data: T }`；HTTP 204 接口不返回响应体。
+- 异常响应统一返回 `{ code: number, message: string, data: null }`，不得让不同模块自行定义顶层响应结构。
 
 ## 7. 日志规范
 
@@ -135,7 +137,13 @@ apps/server/
 - 错误日志必须包含请求上下文或关键业务标识，但不得打印密码、令牌、数据库完整连接串等敏感信息。
 - 启动日志、数据库连接日志和关键业务失败日志必须可检索。
 
-## 8. 测试要求
+## 8. Swagger 文档规范
+
+- 所有 Swagger/OpenAPI 描述信息必须使用中文，包括接口标签、接口摘要、请求体说明、响应说明、安全认证说明和 DTO 字段描述。
+- 路由路径、JSON 字段名、TypeScript 标识符和 JWT 标准术语可以保留协议约定的英文形式。
+- 新增或修改 Controller、DTO 时，应同步维护对应的中文 Swagger 装饰器描述，避免出现中英文混用。
+
+## 9. 测试要求
 
 当前 `apps/server/package.json` 中测试脚本仍是占位状态。后续一旦引入真实业务模块，必须同步恢复可执行测试，不得长期保留“测试禁用”状态。
 
@@ -146,7 +154,7 @@ apps/server/
 - 涉及 Prisma 的测试不得依赖开发库脏数据；应使用独立测试库、事务回滚或明确的 fixture 初始化策略。
 - 新增业务接口时，至少补充对应的单元测试或 E2E 测试之一；涉及鉴权、事务、复杂查询时，两者都应补。
 
-## 9. Prisma 规范
+## 10. Prisma 规范
 
 - `apps/server/prisma/schema.prisma` 是数据库结构的唯一源头；表结构变更必须先改 schema，再生成迁移。
 - 所有 schema 变更必须通过 Prisma migration 管理，禁止只在本地数据库手动执行 DDL 而不落库到迁移文件。
@@ -162,7 +170,7 @@ pnpm --filter @fv-studio/server exec prisma generate
 - 当一个用例包含多步写操作时，必须明确评估事务边界；需要原子性时使用 Prisma transaction。
 - 避免把 Prisma 查询语句散落到多个 controller / service 中。复杂查询统一收敛到 repository 或 service 内的单一职责方法。
 
-## 10. 与当前骨架的演进约束
+## 11. 与当前骨架的演进约束
 
 当前 `src` 下仅有 `app.module.ts`、`app.controller.ts`、`app.service.ts` 与 `main.ts`，这只适用于脚手架阶段。后续演进时：
 
@@ -172,7 +180,7 @@ pnpm --filter @fv-studio/server exec prisma generate
 
 本文件对 `apps/server` 后续开发具备约束力。新增模块、数据库接入和工程初始化实现时，均应先满足本文档，再写业务代码。
 
-## 11. 代码规范
+## 12. 代码规范
 
 代码编写必须符合 NestJS 规范，代码模块必须有说明，包括模块职责、依赖关系、服务提供等注释说明。函数参数、返回值、异常等也必须有注释说明。符合jsdoc规范。
 

@@ -1,10 +1,15 @@
 import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
+import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core'
 
-import { appConfig, databaseConfig } from './config/configuration'
+import { appConfig, authConfig, databaseConfig } from './config/configuration'
 import { envValidationSchema } from './config/env.validation'
+import { AuthModule } from './modules/auth/auth.module'
 import { HealthModule } from './modules/health/health.module'
+import { UsersModule } from './modules/users/users.module'
 import { PrismaModule } from './prisma/prisma.module'
+import { HttpExceptionFilter } from './shared/filters/http-exception.filter'
+import { ResponseInterceptor } from './shared/interceptors/response.interceptor'
 
 @Module({
     imports: [
@@ -12,8 +17,8 @@ import { PrismaModule } from './prisma/prisma.module'
         ConfigModule.forRoot({
             isGlobal: true,
             cache: true,
-            envFilePath: ['.env.local', '.env'],
-            load: [appConfig, databaseConfig],
+            envFilePath: ['.env'],
+            load: [appConfig, databaseConfig, authConfig],
             validationSchema: envValidationSchema,
             validationOptions: {
                 abortEarly: true,
@@ -22,6 +27,18 @@ import { PrismaModule } from './prisma/prisma.module'
         }),
         PrismaModule,
         HealthModule,
+        AuthModule,
+        UsersModule,
+    ],
+    providers: [
+        {
+            provide: APP_INTERCEPTOR,
+            useClass: ResponseInterceptor,
+        },
+        {
+            provide: APP_FILTER,
+            useClass: HttpExceptionFilter,
+        },
     ],
 })
 export class AppModule {}
